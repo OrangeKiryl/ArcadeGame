@@ -18,6 +18,15 @@ public abstract class Weapon : MonoBehaviour
   public abstract bool IsActiveWeapon();
 
   public abstract void MirrorWeapon(bool value);
+
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    Debug.Log("OnCollisionEnter2D");
+    GameObject target = collision.gameObject;
+    IDamageable targetDamageable = target.GetComponent<IDamageable>();
+    targetDamageable?.TakeDamage(GetDamage());
+  }
+
 }
 
 public enum WeaponType

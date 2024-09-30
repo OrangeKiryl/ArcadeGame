@@ -30,7 +30,7 @@ public class ControllerPlayerAttack : MonoBehaviour
             weapon.MirrorWeapon(true);
           }
           weapon.EnableCollider();
-          _playerVisual.SetAnimatorParametr(AnimatorParameter.AttackFirstWeapon, true);
+          _playerVisual.SetAnimatorParametr(PlayerAnimatorParameter.AttackFirstWeapon, true);
         }
       }
     }

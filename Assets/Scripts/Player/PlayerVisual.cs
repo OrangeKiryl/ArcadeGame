@@ -50,12 +50,12 @@ public class PlayerVisual : MonoBehaviour
     return GameInputs.Instance.GetMousePosition().x - Player.Instance.GetPlayerPosition().x;
   }
 
-  public void SetAnimatorParametr(AnimatorParameter param, bool value)
+  public void SetAnimatorParametr(PlayerAnimatorParameter param, bool value)
   {
     _animator.SetBool(param.ToString(), value);
   }
 
-  public void SetAnimatorParametr(AnimatorParameter param, float value)
+  public void SetAnimatorParametr(PlayerAnimatorParameter param, float value)
   {
     _animator.SetFloat(param.ToString(), value);
   }
@@ -67,7 +67,7 @@ public class PlayerVisual : MonoBehaviour
   }
 }
 
-public enum AnimatorParameter
+public enum PlayerAnimatorParameter
 {
   InputX,
   PositionDifferenceX,
