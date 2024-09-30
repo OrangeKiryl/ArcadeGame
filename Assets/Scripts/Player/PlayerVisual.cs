@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Windows;
 
 public class PlayerVisual : MonoBehaviour
@@ -13,6 +14,8 @@ public class PlayerVisual : MonoBehaviour
   private const string IS_RUNNING = "IsRunning";
   private const string ON_JUMPING = "OnJumping";
   private const string ANIMATION_MIRROR = "AnimationMirror";
+
+  public static UnityEvent FinishAttackFirstWeapon = new();
 
   private void Start()
   {
@@ -46,4 +49,30 @@ public class PlayerVisual : MonoBehaviour
       return Player.Instance.GetMoveDirection().x;
     return GameInputs.Instance.GetMousePosition().x - Player.Instance.GetPlayerPosition().x;
   }
+
+  public void SetAnimatorParametr(AnimatorParameter param, bool value)
+  {
+    _animator.SetBool(param.ToString(), value);
+  }
+
+  public void SetAnimatorParametr(AnimatorParameter param, float value)
+  {
+    _animator.SetFloat(param.ToString(), value);
+  }
+
+  private void FinishAttacFirstWeapon()
+  {
+    _animator.SetBool("AttackFirstWeapon", false);
+    FinishAttackFirstWeapon.Invoke();
+  }
+}
+
+public enum AnimatorParameter
+{
+  InputX,
+  PositionDifferenceX,
+  IsRunning,
+  OnJumping,
+  AnimationMirror,
+  AttackFirstWeapon
 }

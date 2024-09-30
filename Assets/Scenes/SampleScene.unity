@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 342188951}
   - component: {fileID: 342188952}
   - component: {fileID: 342188953}
-  - component: {fileID: 342188954}
   m_Layer: 0
   m_Name: Player Visual
   m_TagString: Untagged
@@ -537,19 +536,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9db7922e4ff69eb488ffabc86ca53ccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 342188952}
---- !u!114 &342188954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342188949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0be98d902c8e7941bd3c488e1118642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 342188952}
@@ -2001,6 +1987,7 @@ GameObject:
   - component: {fileID: 1476703429}
   - component: {fileID: 1476703433}
   - component: {fileID: 1476703431}
+  - component: {fileID: 1476703434}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2114,6 +2101,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.385315, y: 1.7571338}
   m_EdgeRadius: 0
+--- !u!114 &1476703434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476703427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb9ae20573fd3a47bb2ad017054ce04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerVisual: {fileID: 342188953}
+  weapons:
+  - {fileID: 1720662170}
 --- !u!1 &1533692534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,13 +2499,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1720662168}
   - component: {fileID: 1720662169}
+  - component: {fileID: 1720662170}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1720662168
 Transform:
   m_ObjectHideFlags: 0
@@ -2526,7 +2529,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720662167}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -2571,6 +2574,24 @@ PolygonCollider2D:
       - {x: 2.249415, y: 0.31481743}
       - {x: 2.2580194, y: 0.8554129}
   m_UseDelaunayMesh: 0
+--- !u!114 &1720662170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720662167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe568fcfb6ee5b459314650ff7f7c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sword: {fileID: 1720662169}
+  _damage: 3
+  _isActiveWeapon: 1
+  FinishAttackSword:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1758123906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4686061055704058016, guid: 0cd0ee53a6a81a248a6d28df8c1a81d7, type: 3}
@@ -3076,7 +3097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7361754907827809027, guid: a3aa7c7a978b9854eb9134a39a826f19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.9
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 7361754907827809027, guid: a3aa7c7a978b9854eb9134a39a826f19, type: 3}
       propertyPath: m_LocalPosition.z
