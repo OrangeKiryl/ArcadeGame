@@ -2592,6 +2592,7 @@ MonoBehaviour:
   FinishAttackSword:
     m_PersistentCalls:
       m_Calls: []
+  transfornScaleX: 0
 --- !u!4 &1758123906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4686061055704058016, guid: 0cd0ee53a6a81a248a6d28df8c1a81d7, type: 3}
