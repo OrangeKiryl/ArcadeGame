@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-  //public int Damage { get; }
-  //public bool IsActive;
 
   public abstract int GetDamage();
 
@@ -21,7 +19,6 @@ public abstract class Weapon : MonoBehaviour
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    Debug.Log("OnCollisionEnter2D");
     GameObject target = collision.gameObject;
     IDamageable targetDamageable = target.GetComponent<IDamageable>();
     targetDamageable?.TakeDamage(GetDamage());

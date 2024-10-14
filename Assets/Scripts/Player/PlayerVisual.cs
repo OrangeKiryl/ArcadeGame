@@ -14,6 +14,8 @@ public class PlayerVisual : MonoBehaviour
   private const string IS_RUNNING = "IsRunning";
   private const string ON_JUMPING = "OnJumping";
   private const string ANIMATION_MIRROR = "AnimationMirror";
+  private const string IS_DAMAGED = "IsDamaged";
+  private const string IS_DEAD = "IsDead";
 
   public static UnityEvent FinishAttackFirstWeapon = new();
 
@@ -65,6 +67,16 @@ public class PlayerVisual : MonoBehaviour
     _animator.SetBool("AttackFirstWeapon", false);
     FinishAttackFirstWeapon.Invoke();
   }
+
+  public void StartAnimationDamaged()
+  {
+    _animator.SetTrigger(IS_DAMAGED);
+  }
+
+  public void StartAnimationDeath()
+  {
+    _animator.SetBool(IS_DEAD, true);
+  }
 }
 
 public enum PlayerAnimatorParameter
@@ -74,5 +86,7 @@ public enum PlayerAnimatorParameter
   IsRunning,
   OnJumping,
   AnimationMirror,
-  AttackFirstWeapon
+  AttackFirstWeapon,
+  IsDamaged,
+  IsDead
 }
